@@ -16,3 +16,22 @@ async function getGithubUser() {
 }
 
 getGithubUser();
+
+async function getMultipleRates() {
+  try {
+    const [usdResponse, eurResponse] = await Promise.all([
+      fetch("https://api.exchangerate/usd"),
+      fetch("https://api.exchangerate/eur"),
+    ]);
+
+    const [usdData, eurData] = await Promise.all([
+      usdResponse.json(),
+      eurResponse.json(),
+    ]);
+
+    console.log("USD: ", usdData);
+    console.log("EUR: ", eurData);
+  } catch (error) {
+    console.log("Error: ", error.message);
+  }
+}
