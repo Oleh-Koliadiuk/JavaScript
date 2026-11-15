@@ -389,3 +389,25 @@ const Developer = {
         lastActive: "2026-06-11T14:15:00Z"
     }
 };
+
+//
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+reverseString("hello"); // hello -> olleh
+//
+
+//
+function findMax(arr) {
+    let max = arr[0]; 
+    
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    
+    return max;
+}
+
+//
